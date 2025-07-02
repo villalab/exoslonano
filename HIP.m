@@ -20,7 +20,7 @@
 %ot have dynamo installed. 
 
 % Define the range of file numbers to process
-file_numbers = 3:3;  % Adjust the range as needed
+file_numbers = 4:4;  % Adjust the range as needed
 file_prefix = 'L11_ts_';  % Prefix for the file names, this is how data acquired with PACEtomo is usually labeled
 file_suffix = '.mrc_3.00Apx.mrc';  % Suffix for the file names, adjust to your data
 
@@ -42,7 +42,7 @@ ng_px_undersampled = ng_undersampled/pixelsize;
 %define voxel volume of the undersampled volume
 volumeNG_undersampled = (4/3)*pi*(ng_px_undersampled)^3; 
 
-num_slices_to_avg = 10; % Number of slices to average
+num_slices_to_avg = 3; % Number of slices to average
 
 for n = file_numbers
     % Construct the file name dynamically
@@ -62,9 +62,10 @@ for n = file_numbers
     disp(['File: ', file_name, ' - Standard deviation: ', num2str(std(normalized_image(:)))]);
     
     % Compute threshold dynamically based on mean and standard deviation
+    % Used a threshold of 3.3 std above the mean, depending on the tomogram 3 std to 3.8 std is reasonable
     mean_intensity = mean(normalized_image(:));
     std_intensity = std(normalized_image(:));
-    threshold_value = mean_intensity + 3.5 * std_intensity;
+    threshold_value = mean_intensity + 3.3 * std_intensity;
     
     % Create the mask using the dynamic threshold
     mask = normalized_image >= threshold_value;
