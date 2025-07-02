@@ -11,7 +11,7 @@ output_folder = 'threshold_3,3std';
 for i = 1:numel(ts_list)
     % Get list of .mrc files inside the current subdirectory that end with
     % "8.00A.mrc" Change the pixel size to match your data.  
-    subtomolist = dir(fullfile('subtomo', ts_list(i).name, '*8.00A.mrc'));
+    subtomolist = dir(fullfile('subtomo', ts_list(i).name, '*10.00A.mrc'));
 
     for ii = 1:numel(subtomolist)
         % Construct full file path
@@ -19,7 +19,7 @@ for i = 1:numel(ts_list)
 
         % Check file size before processing to ignore small or corrupt files).
         % Check your file size in bytes and change that value. 
-        if subtomolist(ii).bytes > 900000  
+        if subtomolist(ii).bytes > 60000  
             % Read volume data
             v = dread(file_path);
 
