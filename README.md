@@ -1,7 +1,9 @@
 # exoslonano
 
 Code is for "ExoSloNano: Multi-Modal Nanogold Tags for identification of Macromolecules in Live Cells & Cryo-Electron Tomograms" 
+
 Authors:  Lindsey N. Young, Alice Sherrard,  Huabin Zhou,  Farhaz Shaikh,  Joshua Hutchings,  Margot Riggi,  Michael K. Rosen,  Antonio J. Giraldez,  Elizabeth Villa
+
 DOI: https://doi.org/10.1101/2024.10.12.617288
 
 Description:
